@@ -59,7 +59,7 @@ Future<void> screenLock({
     context,
     PageRouteBuilder<void>(
       opaque: false,
-      barrierColor: Colors.black.withValues(alpha: 0.2),
+      barrierColor: Colors.black.withOpacity(0.2),
       pageBuilder: (context, animation, secondaryAnimation) => PopScope(
         canPop: canCancel && onCancelled == null,
         child: ScreenLock(
@@ -67,8 +67,7 @@ Future<void> screenLock({
           onUnlocked: onUnlocked ?? Navigator.of(context).pop,
           onOpened: onOpened,
           onValidate: onValidate,
-          onCancelled:
-              canCancel ? onCancelled ?? Navigator.of(context).pop : null,
+          onCancelled: canCancel ? onCancelled ?? Navigator.of(context).pop : null,
           onError: onError,
           onMaxRetries: onMaxRetries,
           maxRetries: maxRetries,
@@ -89,8 +88,7 @@ Future<void> screenLock({
           useLandscape: useLandscape,
         ),
       ),
-      transitionsBuilder: (context, animation, secondaryAnimation, child) =>
-          SlideTransition(
+      transitionsBuilder: (context, animation, secondaryAnimation, child) => SlideTransition(
         position: Tween<Offset>(
           begin: const Offset(0.0, 2.4),
           end: Offset.zero,
@@ -166,15 +164,14 @@ Future<void> screenLockCreate({
     context,
     PageRouteBuilder<void>(
       opaque: false,
-      barrierColor: Colors.black.withValues(alpha: 0.2),
+      barrierColor: Colors.black.withOpacity(0.2),
       pageBuilder: (context, animation, secondaryAnimation) => PopScope(
         canPop: canCancel && onCancelled == null,
         child: ScreenLock.create(
           onConfirmed: onConfirmed,
           onOpened: onOpened,
           onValidate: onValidate,
-          onCancelled:
-              canCancel ? onCancelled ?? Navigator.of(context).pop : null,
+          onCancelled: canCancel ? onCancelled ?? Navigator.of(context).pop : null,
           onError: onError,
           onMaxRetries: onMaxRetries,
           maxRetries: maxRetries,
@@ -197,8 +194,7 @@ Future<void> screenLockCreate({
           useLandscape: useLandscape,
         ),
       ),
-      transitionsBuilder: (context, animation, secondaryAnimation, child) =>
-          SlideTransition(
+      transitionsBuilder: (context, animation, secondaryAnimation, child) => SlideTransition(
         position: Tween<Offset>(
           begin: const Offset(0.0, 2.4),
           end: Offset.zero,
